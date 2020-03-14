@@ -2,7 +2,7 @@
 
 data "template_file" "etc_hosts_snippet" {
   template = <<EOT
-%{ for group in var.groups_to_add }}
+%{ for group in var.groups_to_add ~}
 # ${ group.name }
 %{ for fip_association in group.instancesobject.floating_ip_associations.* ~}
 %{ for host in group.instancesobject.instances.* ~}
@@ -13,7 +13,6 @@ ${fip_association.floating_ip} ${host.name} ${host.name}.training.b1-systems.de
 %{ endfor ~}
 
 %{ endfor ~}
-
 EOT
 }
 
