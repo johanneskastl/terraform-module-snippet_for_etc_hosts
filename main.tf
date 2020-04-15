@@ -17,8 +17,8 @@ EOT
 }
 
 resource "local_file" "file_etc_hosts_snippet" {
-    content         = data.template_file.etc_hosts_snippet.rendered
-    filename        = var.file_name_with_path 
-    file_permission = var.file_permissions
+  content         = data.template_file.etc_hosts_snippet.rendered
+  filename        = var.file_name_with_path
+  file_permission = var.file_permissions
 }
 
